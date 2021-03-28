@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -29,6 +28,7 @@ public class MenuRenewal
     public static String[] solution(String[] orders, int[] course) {
         String[] answer = {};
         
+        //orders 의 값을 가지고 전체 경우의 수를 comb에 저장
         for(int i=0;i<orders.length;i++)
         {
             char[] temp = orders[i].toCharArray();
@@ -41,6 +41,8 @@ public class MenuRenewal
                 }
             }
         }
+
+        //comb를 확인하여 해당 경우와 중복되는 경우의 갯수를 hm에 저장
         for(int i=0;i<comb.size();i++)
         {
             char[] temp = comb.get(i).toCharArray();
@@ -59,12 +61,14 @@ public class MenuRenewal
 
         List<String> res = new ArrayList<>();
         List<String> keySetList = new ArrayList<>(hm.keySet());
+        //모르겠음...ㅠ
         Collections.sort(keySetList, (o1, o2) -> (hm.get(o2).compareTo(hm.get(o1))));
         for(int j=0;j<course.length;j++)
         {
             int max_value = 0;
             for (String key : keySetList) 
             {
+                // 2번 이상 주문 했고 주문의 길이가 course 와 같을 경우
                 if(hm.get(key)>1 && key.length()==course[j])
                 {
                     if (hm.get(key) >= max_value) {
@@ -80,6 +84,7 @@ public class MenuRenewal
         return answer;
     }
 
+    //깊이 우선 탐색
     public static void dfs(char[] arr, int index, int length, int course, String str)
     {
         if(length == course)

@@ -25,6 +25,7 @@ public class BOJ1966 {
         {
             String[] str2 = br.readLine().split(" ");
             String[] printque = br.readLine().split(" ");
+
             //큐에 push
             for(int i=0;i<printque.length;i++)
             {
@@ -38,21 +39,29 @@ public class BOJ1966 {
             }
 
             int cnt=0;
+            //Flag
             boolean tofirst=false;
             boolean toend=false;
+
+            //우선순위가 가장 높은 것부터 체크
             for(int j=9;j>0;j--)
             {
                 for(int k=0;k<que.size();k++)
                 {
-                    printfac temp = que.poll();
-                    if(temp.pri == j && temp.point)
+                    printfac val = que.poll();
+                    //우선순위가 같고 뽑고자 하는 값일 경우
+                    //카운트 증가
+                    //결과값에 현재 카운트 추가
+                    if(val.pri == j && val.point)
                     {
                         cnt++;
                         res[q]=cnt;
                         toend = true;
                         break;
                     }
-                    else if(temp.pri == j)
+                    //우선순위가 같지만 뽑고자 하는 값이 아닐경우 cnt 증가
+                    //(우선순위가 같은 값이 여러개 일 경우)
+                    else if(val.pri == j)
                     {
                         cnt++;
                         tofirst = true;
@@ -60,14 +69,16 @@ public class BOJ1966 {
                     }
                     else
                     {
-                        que.add(temp);
+                        que.add(val);
                     }
                 }
+                //다시 우선순위 9부터 체크
                 if(tofirst)
                 {
                     tofirst = false;
                     j=10;
                 }
+                //for분 종료
                 if(toend)
                 {
                     toend = false;
@@ -77,6 +88,7 @@ public class BOJ1966 {
             }
         }
 
+        //출력
         for (int j : res) 
         {
             System.out.println(j);
