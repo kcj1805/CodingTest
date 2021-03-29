@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
-
+//카드2
 public class BOJ2164 {
     public static void main(String[] args)
     {
