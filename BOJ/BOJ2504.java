@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Stack;
 
-
+//괄호의 값
 public class BOJ2504 
 {
     

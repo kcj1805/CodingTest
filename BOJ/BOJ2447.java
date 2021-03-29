@@ -1,7 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
+// 별 찍기
 public class BOJ2447 
 {
     static char[][] arr={};
