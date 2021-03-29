@@ -1,13 +1,16 @@
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 
 public class BOJ2447 
 {
     static char[][] arr={};
-    public static void main2(String[] args) throws IOException
+    public static void main(String[] args) throws IOException
     {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter wr = new BufferedWriter(new OutputStreamWriter(System.out));
         int input = Integer.parseInt(br.readLine());
 
         arr = new char[input][input];
@@ -17,18 +20,20 @@ public class BOJ2447
         {
             for(int j=0;j<input;j++)
             {
-                System.out.print('*');
-                //if(arr[i][j]=='*')
-                //{
-                //    System.out.print('*');
-                //}
-                //else
-                //{
-                //    System.out.print(' ');
-                //}
+                if(arr[i][j]=='*')
+                {
+                    wr.write('*');
+                }
+                else
+                {
+                    wr.write(' ');
+                }
             }
-            System.out.println("");
+            wr.newLine();
         }
+        wr.flush();
+        wr.close();
+        br.close();
     }
 
     public static void Star(int input, int i, int j)
@@ -56,7 +61,7 @@ public class BOJ2447
         }
     }
     //==============================================================================================================
-    public static void main(String[] args) throws IOException
+    public static void main2(String[] args) throws IOException
     {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
