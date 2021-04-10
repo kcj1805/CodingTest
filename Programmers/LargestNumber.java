@@ -1,11 +1,5 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.Comparator;
-
+import java.io.*;
+import java.util.*;
 
 public class LargestNumber {
     public static void main(String[] args) throws IOException
@@ -32,7 +26,7 @@ public class LargestNumber {
 		}
 
 		// 정렬
-		//Arrays.sort(result, (o1, o2) -> (o2 + o1).compareTo(o1 + o2));
+		Arrays.sort(result, (o1, o2) -> (o2 + o1).compareTo(o1 + o2));
         Arrays.sort(result, new Comparator<String>() {
 
 			@Override
