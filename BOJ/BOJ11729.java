@@ -19,10 +19,12 @@ public class BOJ11729 {
     public static int Solution(int input)
     {
         int answer=0;
+        
+        Calc(input,3);
 
         return answer;
     }
-    public static void Calc(int N)
+    public static void Calc(int N, int to)
     {
         
     }
