@@ -6,14 +6,14 @@ public class BOJ11664 {
     {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter wr = new BufferedWriter(new OutputStreamWriter(System.out));
-        String input = br.readLine();
-        inputArr = new double[9];
-        for(int i=0;i<inputArr.length;i++)
-        {
-            inputArr[i]=Double.parseDouble(input.split(" ")[i]);
-        }
+        //String input = br.readLine();
+        //inputArr = new double[9];
+        //for(int i=0;i<inputArr.length;i++)
+        //{
+        //    inputArr[i]=Double.parseDouble(input.split(" ")[i]);
+        //}
 
-        //inputArr = new double[]{0, 0, 0, 1, 1, 1, 2, 2, 2};
+        inputArr = new double[]{0, 0, 0, 1, 1, 1, 7, 6, 5};
 
         //0, 0, 0, 1, 1, 1, 2, 2, 2 -> 1.7320508076
         //10, 20, 30, 40, 50, 60, 45, 35, 25 -> 28.2842712475
@@ -50,10 +50,12 @@ public class BOJ11664 {
             if(ALength<BLength)
             {
                 hi = b;
+                ans = ALength;
             }
             else
             {
                 lo = a;
+                ans = BLength;
             }
             if(ALength==BLength)
             {
