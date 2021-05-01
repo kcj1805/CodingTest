@@ -6,6 +6,7 @@ import java.io.OutputStreamWriter;
 
 public class BOJ2447 
 {
+    //별찍기 - 10
     static char[][] arr={};
     public static void main(String[] args) throws IOException
     {

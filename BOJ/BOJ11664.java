@@ -2,6 +2,7 @@ import java.io.*;
 import java.util.*;
 
 public class BOJ11664 {
+    //선분과 점
     public static void main(String[] args) throws IOException
     {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -56,10 +57,6 @@ public class BOJ11664 {
             {
                 lo = a;
                 ans = BLength;
-            }
-            if(ALength==BLength)
-            {
-                ans = ALength;
             }
         }
         return ans;

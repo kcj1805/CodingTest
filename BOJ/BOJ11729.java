@@ -2,6 +2,7 @@ import java.io.*;
 import java.util.*;
 
 public class BOJ11729 {
+    //하노이 탑 이동순서
     public static void main(String[] args) throws IOException
     {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

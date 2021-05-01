@@ -3,6 +3,7 @@ import java.util.Queue;
 import java.util.Scanner;
 
 public class BOJ11866 {
+    //요세푸스 문제0
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String str = sc.nextLine();

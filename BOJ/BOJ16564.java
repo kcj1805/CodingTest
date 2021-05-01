@@ -1,6 +1,7 @@
 import java.io.*;
 
 public class BOJ16564 {
+    //히오스 프로게이머
     public static void main(String[] args) throws IOException
     {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

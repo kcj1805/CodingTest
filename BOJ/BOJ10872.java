@@ -1,6 +1,7 @@
 import java.io.*;
 
 public class BOJ10872 {
+    //팩토리얼
     public static void main(String[] args) throws IOException
     {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

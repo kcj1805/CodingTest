@@ -6,6 +6,7 @@ import java.io.OutputStreamWriter;
 import java.util.Arrays;
 
 public class BOJ11399 {
+    //ATM
     public static void main(String[] args) throws IOException
     {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

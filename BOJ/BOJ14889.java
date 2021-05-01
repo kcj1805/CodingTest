@@ -2,6 +2,7 @@ import java.io.*;
 import java.util.*;
 
 public class BOJ14889 {
+    //스타트와 링크
     static int[][] arr;
     public static void main(String[] args) throws IOException
     {

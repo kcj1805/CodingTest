@@ -6,7 +6,7 @@ import java.util.Queue;
 
 //프린터 큐
 public class BOJ1966 {
-    
+    //프린터 큐
 
     public static class printfac
     {
