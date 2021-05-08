@@ -5,19 +5,22 @@ public class BOJ1012 {
     //유기농 배추
     public static void main(String[] args) throws IOException
     {
-        Scanner sc = new Scanner(System.in);
-        int input = sc.nextInt();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter wr = new BufferedWriter(new OutputStreamWriter(System.out));
+        int input = Integer.parseInt(br.readLine());
         answer = new int[input];
         for(int i=0;i<input;i++){
-            int M = sc.nextInt();
-            int N = sc.nextInt();
-            int K = sc.nextInt();
+            String MNK = br.readLine();
+            int M = Integer.parseInt(MNK.split(" ")[0]);
+            int N = Integer.parseInt(MNK.split(" ")[1]);
+            int K = Integer.parseInt(MNK.split(" ")[2]);
             inputArr = new int[M][N];
             visited = new boolean[M][N];
 
             for(int j=0;j<K;j++){
-                int A = sc.nextInt();
-                int B = sc.nextInt();
+                String AB = br.readLine();
+                int A = Integer.parseInt(AB.split(" ")[0]);
+                int B = Integer.parseInt(AB.split(" ")[1]);
                 inputArr[A][B] = 1;
             }
             cnt=0;
@@ -30,9 +33,12 @@ public class BOJ1012 {
         }
 
         for(int i=0;i<answer.length;i++){
-            System.out.println(Integer.toString(answer[i]));
+            wr.write(Integer.toString(answer[i])+"\n");
         }
-        sc.close();
+        
+        wr.flush();
+        wr.close();
+        br.close();
     }
     static int[] answer;
     static int cnt;
