@@ -33,7 +33,7 @@ public class BOJ1927 {
                 //자연수면 큐에 push
                 pg.add(input[i]);
             }
-            else if(pg.size()!=0){
+            else if(!pg.isEmpty()){
                 //0이고 큐가 비어있지않으면 최소값 poll
                 answer.add(pg.poll());
             }
