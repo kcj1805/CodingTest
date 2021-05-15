@@ -6,13 +6,14 @@ public class BaseForm {
     {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter wr = new BufferedWriter(new OutputStreamWriter(System.out));
-        //String input = br.readLine();
 
         wr.write("");
-        
         wr.flush();
         wr.close();
         br.close();
+
+        Scanner sc = new Scanner(System.in);
+        sc.close();
     }
     public static int Solution(int[] input)
     {
