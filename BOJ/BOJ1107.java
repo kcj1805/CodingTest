@@ -5,55 +5,55 @@ public class BOJ1107 {
     //리모컨
     public static void main(String[] args) throws IOException
     {
-        /*
-        11
-        8
-        1 3 4 5 6 7 8 9
-        답 10*/
-        /*
-        12
-        9
-        0 1 3 4 5 6 7 8 9
-        답 11*/
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
         int M = sc.nextInt();
-        List<Integer> BanList = new ArrayList<>();
+        List<Integer> NumList = new ArrayList<>();
+        List<Integer> ansList = new ArrayList<>();
+        for(int i=0;i<10;i++){
+            NumList.add(i);
+        }
         for(int i=0;i<M;i++){
-            BanList.add(sc.nextInt());
+            NumList.remove((Object)sc.nextInt());
         }
-        int res = Solution(N, BanList);
-        int diff = Math.abs(100-N);
-        if(diff<res){
-            System.out.println(diff);
+
+        RemoteControl(N,NumList,ansList,0);
+
+        //100에서 +/- 했을때의 값과 answer비교
+        int diff = Math.abs(N-100);
+        if(diff<answer){
+            answer = diff;
         }
-        else{
-            System.out.println(res);
-        }
+
+        System.out.println(answer);
         sc.close();
     }
-    public static int Solution(int N, List<Integer> BanList)
-    {
-        int answer=0;
-        int[] NArr = Arrays.stream(Integer.toString(N).split("")).mapToInt(Integer::parseInt).toArray();
-        int[] ansArr = new int[NArr.length];
-        for(int i=0;i<NArr.length;i++){
-            for(int j=0;j<10;j++){
-                if(!BanList.contains(j) && NArr[i]<=j){
-                    ansArr[i]=Math.max(ansArr[i],j);
-                    answer++;
-                    break;
-                }
-            }
-        }
-        StringBuilder strNum = new StringBuilder();
+    static int answer=Integer.MAX_VALUE;
 
-        for (int num : ansArr) 
-        {
-             strNum.append(num);
+    public static void RemoteControl(int N, List<Integer> NumList, List<Integer> ansList, int cnt)
+    {
+        //카운트 계산
+        if(!ansList.isEmpty()){
+            StringBuilder sb = new StringBuilder();
+            for (int ans : ansList) {
+                sb.append(ans);
+            }
+            int finalint = Integer.parseInt(sb.toString());
+            answer = Math.min(answer, Math.abs(N-finalint)+cnt);
         }
-        int finalInt = Integer.parseInt(strNum.toString());
-        answer += Math.abs(N-finalInt);
-        return answer;  
+
+        //자리수 초과시 리턴
+        if(ansList.size()==Integer.toString(N).length()+1){
+            return;
+        }
+        
+        //DFS
+        for (int num : NumList) {
+            ansList.add(num);
+            cnt++;
+            RemoteControl(N, NumList, ansList, cnt);
+            cnt--;
+            ansList.remove(ansList.size()-1);
+        }
     }
 }
