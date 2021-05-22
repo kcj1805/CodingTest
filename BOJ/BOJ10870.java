@@ -1,5 +1,4 @@
 import java.io.*;
-import java.util.*;
 
 public class BOJ10870 {
     //피보나치 수 5

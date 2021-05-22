@@ -1,5 +1,4 @@
 import java.io.*;
-import java.util.*;
 
 public class BOJ15552 {
     //빠른 A+B

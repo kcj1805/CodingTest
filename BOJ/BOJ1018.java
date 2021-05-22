@@ -1,5 +1,4 @@
 import java.io.*;
-import java.util.*;
 
 public class BOJ1018 {
     //체스판 다시 칠하기

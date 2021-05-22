@@ -1,5 +1,4 @@
 import java.io.*;
-import java.util.*;
 
 public class BOJ11664 {
     //선분과 점

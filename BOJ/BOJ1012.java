@@ -1,5 +1,4 @@
 import java.io.*;
-import java.util.*;
 
 public class BOJ1012 {
     //유기농 배추

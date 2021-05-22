@@ -1,5 +1,4 @@
 import java.io.*;
-import java.util.*;
 
 public class BOJ10871 {
     //X보다 작은 수
