@@ -43,7 +43,7 @@ public class RankSearch {
         }
 
         for(int i=0;i<query.length;i++){
-            answer[i] = query.length;
+            answer[i] = list.size();
             String[] querystrArr = query[i].split("\\s*and\\s*");
             int Score = Integer.parseInt(querystrArr[3].split(" ")[1]);
             querystrArr[3] = querystrArr[3].split(" ")[0];
