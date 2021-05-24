@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 
 public class BOJ15649 {
-    //N과 M - (1),(2),(3)
+    //N과 M - (1),(2),(3),(4)
     static List<Integer> ansList = new ArrayList<>();
     static boolean[] visited;
     static StringBuilder sb = new StringBuilder();
@@ -30,9 +30,10 @@ public class BOJ15649 {
             sb.append("\n");
         }
         else{
-            Calc1(M);
+            //Calc1(M);
             //Calc2(val,M);
             //Calc3(M);
+            Calc4(val,M);
         }
 
         ansList.remove(ansList.size()-1);
@@ -57,6 +58,12 @@ public class BOJ15649 {
     public static void Calc3(int M)
     {
         for(int i=1;i<visited.length;i++){
+            Solution(i, M);
+        }
+    }
+    public static void Calc4(int val, int M)
+    {
+        for(int i=val;i<visited.length;i++){
             Solution(i, M);
         }
     }
