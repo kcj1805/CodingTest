@@ -2,23 +2,24 @@ import java.io.*;
 import java.util.*;
 
 public class BOJ9663 {
+    //N-Queen
     static int answer=0;
     public static void main(String[] args) throws IOException
     {
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
         int[][] Chess = new int[N][N];
+        int[][] ChessCopy = new int[N][N];
         for(int i=0;i<N;i++){
-            for(int j=0;j<N;j++){
-                Solution(Chess, N, i, j, 0);
-                Chess = new int[N][N];
-            }
+            ArrCopy(Chess, ChessCopy);
+            Solution(Chess, N, 0, i, 0);
         }
         System.out.println(answer);
         sc.close();
     }
     public static void Solution(int[][] Chess, int N, int x, int y, int cnt)
     {
+        int[][] ChessCopy = new int[N][N];
         Chess[x][y]=2;
         cnt++;
         if(cnt==N){
@@ -28,8 +29,7 @@ public class BOJ9663 {
         if(!BlockChess(Chess, N, x, y)){
             return;
         }
-        int[][] ChessCopy = new int[N][N];
-        for(int i=0;i<N;i++){
+        for(int i=x;i<N;i++){
             for(int j=0;j<N;j++){
                 if(Chess[i][j]==0){
                     ArrCopy(ChessCopy,Chess);
