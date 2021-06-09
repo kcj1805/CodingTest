@@ -7,6 +7,7 @@ public class BOJ9184 {
         Scanner sc = new Scanner(System.in);
         StringBuilder sb = new StringBuilder();
         int answer = 0;
+        wArr = new int[20][9];
         while(true){
             int a = sc.nextInt();
             int b = sc.nextInt();
@@ -30,14 +31,15 @@ public class BOJ9184 {
         System.out.println(sb.toString());
         sc.close();
     }
+    //a,b,c,ab,ac,bc,abc
+    static int[][] wArr;
     public static int w(int a, int b, int c)
     {
         if(a<b && b<c){
-            return w(a, b, c-1) + w(a, b-1, c-1) - w(a, b-1, c);
+            wArr[0][7] = wArr[0][2] + wArr[0][5] - wArr[0][1];
         }
         else{
-            return w(a-1, b, c) + w(a-1, b-1, c) + w(a-1, b, c-1) - w(a-1, b-1, c-1);
+            wArr[0][8] = wArr[0][0] + wArr[0][3] + wArr[0][4] - wArr[0][6];
         }
-        
     }
 }
