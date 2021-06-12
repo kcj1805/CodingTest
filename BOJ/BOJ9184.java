@@ -2,12 +2,13 @@ import java.io.*;
 import java.util.*;
 
 public class BOJ9184 {
+    //신나는 함수 실행
     public static void main(String[] args) throws IOException
     {
         Scanner sc = new Scanner(System.in);
         StringBuilder sb = new StringBuilder();
         int answer = 0;
-        wArr = new int[20][9];
+        wArr = new int[51][51][51];
         while(true){
             int a = sc.nextInt();
             int b = sc.nextInt();
@@ -15,15 +16,7 @@ public class BOJ9184 {
             if(a==-1 && b==-1 && c==-1){
                 break;
             }
-            if(a <= 0 || b <= 0 || c <= 0){
-                answer = 1;
-            }
-            else{
-                if(a > 20 || b > 20 || c > 20){
-                    a = b = c = 20;
-                }
-                answer = w(a, b, c);
-            }
+            answer = w(a, b, c);
                 
             sb.append("w("+a+", "+b+", "+c+") = ");
             sb.append(answer+"\n");
@@ -31,15 +24,23 @@ public class BOJ9184 {
         System.out.println(sb.toString());
         sc.close();
     }
-    //a,b,c,ab,ac,bc,abc
-    static int[][] wArr;
+    static int[][][] wArr;
     public static int w(int a, int b, int c)
     {
+        if(a <= 0 || b <= 0 || c <= 0){
+            return 1;
+        }
+        if(a > 20 || b > 20 || c > 20){
+            return w(20,20,20);
+        }
+        if(wArr[a][b][c] != 0){
+            return wArr[a][b][c];
+        }
         if(a<b && b<c){
-            wArr[0][7] = wArr[0][2] + wArr[0][5] - wArr[0][1];
+            return wArr[a][b][c] = w(a, b, c-1) + w(a, b-1, c-1) - w(a, b-1, c);
         }
         else{
-            wArr[0][8] = wArr[0][0] + wArr[0][3] + wArr[0][4] - wArr[0][6];
+            return wArr[a][b][c] = w(a-1, b, c) + w(a-1, b-1, c) + w(a-1, b, c-1) - w(a-1, b-1, c-1);
         }
     }
 }
