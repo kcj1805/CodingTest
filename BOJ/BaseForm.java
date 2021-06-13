@@ -15,10 +15,8 @@ public class BaseForm {
         Scanner sc = new Scanner(System.in);
         sc.close();
     }
-    public static int Solution(int[] input)
+    public static void Solution(int input)
     {
-        int answer=0;
-
-        return answer;
+        return;
     }
 }
