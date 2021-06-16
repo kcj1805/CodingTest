@@ -3,6 +3,18 @@ import java.util.*;
 
 public class BOJ2579 {
     //계단 오르기
+    /*
+    10 - 10
+    20 - 30
+    15 - 25
+    25 - 55 /50
+    10 - 35 /65
+    20 - 75 70 /55
+    30 - 65 95 /105 100
+    10 - 85 80 60 /75 105
+    10 - 75 105 115 110/95 90 70
+    10 - 95 90 70 85 115 / 75 115 120 120
+    */
     static int[] stair;
     public static void main(String[] args) throws IOException
     {
