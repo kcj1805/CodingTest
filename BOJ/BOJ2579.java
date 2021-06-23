@@ -17,25 +17,30 @@ public class BOJ2579 {
     10 - 95 90 70 85 115 / 75 115 120 120
     */
     static int[] stair;
+    static int[] dp;
     public static void main(String[] args) throws IOException
     {
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
         stair = new int[N];
+        dp = new int[N];
         for(int i=0;i<N;i++){
             stair[i] = sc.nextInt();
         }
-        System.out.println(Solution(N));
+        Solution1(N);
+        System.out.println(dp[N-1]);
         sc.close();
     }
     public static int Solution(int N)
     {
+        //메모리 초과
         int A = 0;
         List<Integer> B = new ArrayList<>();
         List<Integer> C = new ArrayList<>();
+        List<Integer> now = new ArrayList<>();
         
         for(int i=0;i<N;i++){
-            List<Integer> now = new ArrayList<>();
+            now = new ArrayList<>();
             if(i==0){
                 A = 1;
             }
@@ -61,5 +66,23 @@ public class BOJ2579 {
         }
         
         return Collections.max(C);
+    }
+    public static void Solution1(int N)
+    {
+        
+        for(int i=0;i<N;i++){
+            if(i==0){
+                dp[i]=stair[i];
+            }
+            else if(i==1){
+                dp[i]=Math.max(stair[i],stair[i-1]+stair[i]);
+            }
+            else if(i==2){
+                dp[i]=Math.max(stair[i-2]+stair[i],stair[i-1]+stair[i]);
+            }
+            else{
+                dp[i]=Math.max(dp[i-2]+stair[i],dp[i-3]+stair[i-1]+stair[i]);
+            }
+        }
     }
 }
