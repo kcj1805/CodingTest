@@ -2,6 +2,7 @@ import java.io.*;
 import java.util.*;
 
 public class BOJ1654 {
+    //랜선 자르기
     public static void main(String[] args) throws IOException
     {
         Scanner sc = new Scanner(System.in);
@@ -18,23 +19,18 @@ public class BOJ1654 {
 
         sc.close();
     }
-    public static int Solution(int[] lan, int N, int min)
+    public static long Solution(int[] lan, int N, int min)
     {
-        int top = Integer.MAX_VALUE;
-        int low = 0;
-        int mid = (top+low)/2;
-        int cnt=0;
-        while(mid<top){
+        long top = Integer.MAX_VALUE;
+        long low = 1;
+        long mid = (top+low)/2;
+        long cnt=0;
+        while(low<=top){
             cnt=0;
             for(int i=0;i<lan.length;i++){
                 cnt += lan[i]/mid;
             }
 
-            //if(cnt==N){
-            //    mid++;
-            //    continue;
-            //}
-            //else 
             if(cnt<N){
                 top = mid-1;
             }
