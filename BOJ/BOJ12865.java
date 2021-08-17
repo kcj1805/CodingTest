@@ -18,10 +18,17 @@ public class BOJ12865 {
         Arrays.sort(val, new Comparator<int[]>(){
             @Override
             public int compare(int[] o1, int[] o2) {
-                if(o2[0] - o1[0]==0){
-                    return o2[1] - o1[1];
+                double do1 = (double)o1[1]/o1[0];
+                double do2 = (double)o2[1]/o2[0];
+                if(do1==do2){
+                    return o2[1]-o1[1];
                 }
-                return o2[0] - o1[0];
+                else if(do1>do2){
+                    return -1;
+                }
+                else{
+                    return 1;
+                }
             }
         });
         
@@ -33,13 +40,12 @@ public class BOJ12865 {
             else{
                 for(int j=i-1;j>=0;j--){
                     if(dp[j][0]+val[i][0] <= K){
-                        if(dp[j][1]+val[i][1]==dp[i][1]){
-                            dp[i][0] = Math.min(dp[i][0],dp[j][0]+val[j][0]);
-                        }
-                        else if(dp[j][1]+val[i][1]>dp[i][1]){
-                            dp[i][0] = dp[j][0]+val[i][0];
-                            dp[i][1] = dp[j][1]+val[i][1];
-                        }
+                        dp[i][0] = dp[j][0]+val[i][0];
+                        dp[i][1] = dp[j][1]+val[i][1];
+                    }
+                    else{
+                        dp[i][0]=dp[j][0];
+                        dp[i][1]=dp[j][1];
                     }
                 }
             }
@@ -50,7 +56,13 @@ public class BOJ12865 {
     }
 }
 //wrong! [정답] != [오답]
-//
+
+//wrong! 14
+//4 7
+//6 13
+//4 8
+//3 6
+//5 12
 //wrong! 264 != 263
 //7 19
 //9 89
