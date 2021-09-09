@@ -15,11 +15,11 @@ public class BOJ11051 {
     }
     public static int Comb(int N, int K)
     {
-        if(N<=0 || K<=0){
+        if(N==K || K==0){
             dp[N][K]=1;
         }
         else if(dp[N][K] == 0){
-            dp[N][K] = Comb(N-1, K-1) + Comb(N-1, K);
+            dp[N][K] = (Comb(N-1, K-1) + Comb(N-1, K))%10007;
         }
         return dp[N][K];
     }
