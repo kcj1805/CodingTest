@@ -1,6 +1,7 @@
 {
     "java.project.sourcePaths": [
+        "Programmers",
         "BOJ",
-        "Programmers"
+        "20210911KAKAOBLIND"
     ]
 }
