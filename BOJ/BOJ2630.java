@@ -19,6 +19,7 @@ public class BOJ2630 {
         System.out.println(white + "\n" + blue);
         sc.close();
     }
+
     public static void Cut(int[][] paper,int N, int i, int j)
     {
         int tmp=paper[i][j];
