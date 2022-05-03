@@ -1,7 +1,5 @@
 import java.io.*;
 import java.util.*;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
 public class MoreSpicy {
     public static void main(String[] args) throws IOException
